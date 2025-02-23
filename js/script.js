@@ -6,15 +6,26 @@ let converttext = Array.from(text)
 
 
 converttext.map((item,)=>{
-    
+    let color =["white","yellow","green","blue","purple","lime"]
+
+    let y = -1
+
     let count = 0
+    
     function counterJs(){
         count++
         item.innerHTML=count
-
         if(count>=item.dataset.num){
             clearInterval(stop)
         }
+        if(color.length==y){
+            y=-1
+        }
+        if(count==item.dataset.num.length){
+            item.style.color="white"
+        }
+        y++
+        item.style.color=color[y]
     }
     let stop=setInterval(()=>{
         counterJs()
